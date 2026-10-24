@@ -10,6 +10,17 @@ const app = express();
 // Middleware to read JSON request bodies
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Welcome to Recipes API!",
+    status: "Server is running",
+    endpoints: {
+      test: "/test",
+      getAllRecipes: "/api/recipes"
+    }
+  });
+});
+
 
 
 // Connect recipe routes
